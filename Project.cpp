@@ -8,7 +8,7 @@ static float pm = 300.0;
 static float bm = 350.0;
 static float tm = 300.0;
 static float cm = -300.0;
-static float cm2 = 300.0; // New variable for the second car
+static float cm2 = 300.0;
 float spin = 0.0;
 
 GLfloat tx = 5;
@@ -36,6 +36,7 @@ void sun() {
 
 void make_cloud(int x, int y) {
     glColor3f(1.0, 1.0, 1.0);
+
     circle(10, 10, x, y);
     circle(10, 10, x + 10, y);
     circle(10, 10, x + 30, y);
@@ -114,16 +115,16 @@ void ground() {
 }
 
 void road() {
-    // Road Area
+
     glColor3f(0.3, 0.3, 0.3);
     rectangle(-300, -200, 300, -30);
-    // Road side broader up
+
     glColor3f(0.0, 0.0, 0.0);
     rectangle(-300, -30, 300, -33);
-    // Road side broader down
+
     glColor3f(0.0, 0.0, 0.0);
     rectangle(-300, -205, 300, -200);
-    // Dividers
+
     glColor3f(1.0, 1.0, 1.0);
     rectangle(-270, -120, -230, -110);
     rectangle(-270, -120, -200, -110);
@@ -133,13 +134,13 @@ void road() {
 }
 
 void flag() {
-    // Flag stand
+
     glColor3f(0.0, 0.0, 0.0);
     rectangle(-170, -9, -167, 125);
-    // Flag area
+
     glColor3f(0.18, 0.72, 0.18);
     rectangle(-167, 75, -120, 125);
-    // Flag circle
+
     glColor3f(0.9, 0.0, 0.0);
     circle(10, 20, -143, 100);
 }
@@ -171,7 +172,7 @@ void college() {
     glColor3f(1.0, 1.0, 0.3);
     rectangle(-100, -9, 60, 120);
     glColor3f(0.0, 0.0, 0.7);
-    rectangle1(-100, 120, 60, 120, -90, 140, 70, 140); // Top
+    rectangle1(-100, 120, 60, 120, -90, 140, 70, 140);
     glColor3f(0.4, 1.0, 1.0);
     rectangle1(60, -9, 70, 0, 60, 120, 70, 140);
     glColor3f(0, 0, 0);
@@ -257,31 +258,31 @@ void privatecar() {
 
 void makeprivatecar2() {
     glPushMatrix();
-    glTranslatef(0, 0, 0); // Move to the origin
-    glRotatef(180, 0, 1, 0); // Rotate 180 degrees around the y-axis
+    glTranslatef(0, 0, 0);
+    glRotatef(180, 0, 1, 0);
 
-    glColor3f(0.0, 0.0, 1.0); // Blue color for the second car
+    glColor3f(0.0, 0.0, 1.0);
     circle(5, 15, 0, 0);
     rectangle(0, -15, 60, 15);
 
-    glColor3f(1.0, 0.47, 0.2); // Light blue for the windows
+    glColor3f(1.0, 0.47, 0.2);
     triangle(5, 15, 20, 20, 45);
     triangle(40, 15, 60, 40, 45);
 
-    glColor3f(0, 0, 0); // Black for the outline and wheels
+    glColor3f(0, 0, 0);
     rectangle(20, 15, 40, 45);
 
-    glColor3f(0.0, 0.0, 1.0); // Blue for the back part
+    glColor3f(0.0, 0.0, 1.0);
     circle(5, 10, 80, -5);
 
-    glColor3f(0.0, 0.0, 1.0); // Blue for the front part
+    glColor3f(0.0, 0.0, 1.0);
     rectangle1(60, -15, 80, -15, 60, 15, 80, 5);
 
-    glColor3f(0, 0, 0); // Black for the wheel rims
+    glColor3f(0, 0, 0);
     circle(7, 14, 10, -15);
     circle(7, 14, 60, -15);
 
-    glColor3f(1.0, 1.0, 1.0); // White for the wheel hubcaps
+    glColor3f(1.0, 1.0, 1.0);
     circle(6, 12, 10, -15);
     circle(6, 12, 60, -15);
 
@@ -298,7 +299,7 @@ void privatecarMove2() {
 void privatecar2() {
     privatecarMove2();
     glPushMatrix();
-    glTranslatef(cm2, -150, 0); // Move the car to a lower lane
+    glTranslatef(cm2, -150, 0);
     makeprivatecar2();
     glPopMatrix();
 }
@@ -322,49 +323,49 @@ void railline() {
 void station() {
     int baseY = -270;
     int height = 200;
-    int leftX = -200;  // Adjusted to make the roof wider
-    int rightX = 200;  // Adjusted to make the roof wider
+    int leftX = -200;
+    int rightX = 200;
 
-    // Station base pillars
-    glColor3f(0.4f, 0.2f, 0.0f); // Brown pillars
+
+    glColor3f(0.4f, 0.2f, 0.0f);
     rectangle(leftX, baseY, leftX + 20, baseY + height);
     rectangle(rightX - 20, baseY, rightX, baseY + height);
 
-    // Station top roof (cyan-colored)
-    glColor3f(0.0f, 1.0f, 1.0f); // Cyan color for the roof
+
+    glColor3f(0.0f, 1.0f, 1.0f);
     rectangle(leftX, baseY + height - 10, rightX, baseY + height + 10);
 
-    // Calculate the center position for the text
+
     int textX = (leftX + rightX) / 2;
     int textY = baseY + height - 5;
 
-    // Adjust the position of the text "Uttara North Station" inside the cyan-colored area
-    glColor3f(0.0f, 0.0f, 0.0f); // Black text color
-    glRasterPos2f(textX - 40, textY); // Adjusted position for perfect alignment
+
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glRasterPos2f(textX - 40, textY);
 
     const char* text = "Uttara North Station";
     for (int i = 0; text[i] != '\0'; i++) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, text[i]);
     }
 
-    // Benches
-    glColor3f(0.5f, 0.35f, 0.05f); // Wooden color
+
+    glColor3f(0.5f, 0.35f, 0.05f);
     rectangle(-140, baseY + 20, -60, baseY + 30);
     rectangle(-135, baseY + 30, -130, baseY + 60);
 
     rectangle(60, baseY + 20, 140, baseY + 30);
     rectangle(135, baseY + 30, 130, baseY + 60);
 
-    // Platform base
+
     glColor3f(0.7f, 0.7f, 0.7f);
     rectangle(-300, baseY, 300, baseY + 10);
 
-    // Light poles
+
     glColor3f(0.6f, 0.6f, 0.6f);
     rectangle(-120, baseY + 10, -117, baseY + 100);
     rectangle(120, baseY + 10, 123, baseY + 100);
 
-    // Light bulbs
+
     glColor3f(1.0f, 1.0f, 0.0f);
     circle(5, 5, -118.5, baseY + 100);
     circle(5, 5, 121.5, baseY + 100);
@@ -490,7 +491,7 @@ void myDisplay() {
     house();
     plane();
     privatecar();
-    privatecar2(); // Render the second car
+    privatecar2();
     railline();
     train();
     station();
